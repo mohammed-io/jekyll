@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Releases | Jekyll • Simple, blog-aware, static sites</title>
-<meta name="generator" content="Jekyll v4.1.1" />
+<meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Releases" />
 <meta name="author" content="all" />
 <meta property="og:locale" content="en_US" />
@@ -30,7 +30,7 @@
 <meta name="twitter:creator" content="@all" />
 <meta name="google-site-verification" content="onQcXpAvtHBrUI5LlroHNE_FP0b2qvFyPq7VZw36iEY" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jekyllrb.com/img/logo-2x.png"},"name":"all"},"description":"Transform your plain text into static websites and blogs","url":"https://jekyllrb.com/news/releases/","@type":"WebPage","headline":"Releases","image":"https://jekyllrb.com/img/jekyll-og.png","author":{"@type":"Person","name":"all"},"@context":"https://schema.org"}</script>
+{"headline":"Releases","description":"Transform your plain text into static websites and blogs","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jekyllrb.com/img/logo-2x.png"},"name":"all"},"url":"https://jekyllrb.com/news/releases/","@type":"WebPage","author":{"@type":"Person","name":"all"},"image":"https://jekyllrb.com/img/jekyll-og.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <!--[if lt IE 9]>
@@ -62,7 +62,7 @@
 </div>
     <div class="meta hide-on-mobiles">
       <ul>
-        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.1.1">v4.1.1</a></li>
+        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.2.0">v4.2.0</a></li>
         <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
       </ul>
     </div>
@@ -84,6 +84,8 @@
     <option value="">Navigate the blog…</option>
     <option value="/news/">Home</option>
     <optgroup label="posts">
+      <option value="/news/2021/04/08/jekyll-3-9-1-released/">Jekyll 3.9.1 Released</option>
+      <option value="/news/2020/12/14/jekyll-4-2-0-released/">Jekyll 4.2.0 Released</option>
       <option value="/news/2020/08/05/jekyll-3-9-0-released/">Jekyll 3.9.0 Released</option>
       <option value="/news/2020/06/24/jekyll-4-1-1-released/">Jekyll 4.1.1 Released</option>
       <option value="/news/2020/05/27/jekyll-4-1-0-released/">Jekyll 4.1.0 Released</option>
@@ -174,41 +176,73 @@
 </div>
 <div class="unit four-fifths"><article>
   <h2>
-    <a href="/news/2020/08/05/jekyll-3-9-0-released/">Jekyll 3.9.0 Released</a>
+    <a href="/news/2021/04/08/jekyll-3-9-1-released/">Jekyll 3.9.1 Released</a>
   </h2>
   <span class="post-category">
     <span class="label">release</span>
   </span>
   <div class="post-meta">
-    <span class="post-date">05 Aug 2020</span>
+    <span class="post-date">08 Apr 2021</span>
     <a href="https://github.com/parkr" class="post-author">
       <img class="avatar avatar-small" alt="parkr" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/parkr?v=3&s=24" srcset="https://avatars3.githubusercontent.com/parkr?v=3&s=24 1x, https://avatars3.githubusercontent.com/parkr?v=3&s=48 2x, https://avatars3.githubusercontent.com/parkr?v=3&s=72 3x, https://avatars3.githubusercontent.com/parkr?v=3&s=96 4x" /><span class="author-name">parkr</span>
     </a>
   </div>
-  <div class="post-content"><p>Jekyll 3.9.0 allows use of kramdown v2, the latest series of kramdown.</p>
+  <div class="post-content"><p>This patch release of the 3.9 series is released to fix a bug where the
+<code class="language-plaintext highlighter-rouge">include</code> tag does not allow valid filename characters. For example, this
+would previously fail:</p>
 
-<p>If you choose to upgrade, please note that the GitHub-Flavored Markdown
-parser and other features of kramdown v1 are now distributed via
-separate gems. If you would like to continue using these features, you will
-need to add the gems to your <code class="language-plaintext highlighter-rouge">Gemfile</code>. They are as follows:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include my-logo@2x.svg %}
+</code></pre></div></div>
+
+<p>This release adds support for the following characters in filenames:</p>
 
 <ul>
-  <li>GFM parser – <code class="language-plaintext highlighter-rouge">kramdown-parser-gfm</code></li>
-  <li>coderay syntax highlighter – <code class="language-plaintext highlighter-rouge">kramdown-syntax-coderay</code></li>
-  <li>mathjaxnode math engine – <code class="language-plaintext highlighter-rouge">kramdown-math-mathjaxnode</code></li>
-  <li>sskatex math engine – <code class="language-plaintext highlighter-rouge">kramdown-math-sskatex</code></li>
-  <li>katex math engine – <code class="language-plaintext highlighter-rouge">kramdown-math-katex</code></li>
-  <li>ritex math engine – <code class="language-plaintext highlighter-rouge">kramdown-math-ritex</code></li>
-  <li>itex2mml math engine – <code class="language-plaintext highlighter-rouge">kramdown-math-itex2mml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@</code></li>
+  <li><code class="language-plaintext highlighter-rouge">-</code></li>
+  <li><code class="language-plaintext highlighter-rouge">(</code> and <code class="language-plaintext highlighter-rouge">)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">+</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#</code></li>
 </ul>
-
-<p>Jekyll will require the given gem when the configuration requires it, and
-will show a helpful message when a dependency is missing.</p>
-
-<p>You can check out the patches and see all the details in <a href="/docs/history/#v3-9-0">the release notes</a></p>
 
 <p>Happy Jekylling!</p>
 </div>
+</article>
+<article>
+  <div class="cell-left">
+    <span class="post-category">
+      <span class="label">release</span>
+    </span>
+  </div>
+  <div class="cell-right">
+    <div class="post-meta">
+      <h2 class="post-title">
+        <a href="/news/2020/12/14/jekyll-4-2-0-released/">Jekyll 4.2.0 Released</a>
+      </h2>
+      <span class="post-date">14 Dec 2020</span>
+      <a href="https://github.com/ashmaroli" class="post-author">
+        <img class="avatar avatar-small" alt="ashmaroli" width="24" height="24" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24" srcset="https://avatars0.githubusercontent.com/ashmaroli?v=3&s=24 1x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=48 2x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=72 3x, https://avatars0.githubusercontent.com/ashmaroli?v=3&s=96 4x" /><span class="author-name">ashmaroli</span>
+      </a>
+    </div>
+  </div>
+</article>
+<article>
+  <div class="cell-left">
+    <span class="post-category">
+      <span class="label">release</span>
+    </span>
+  </div>
+  <div class="cell-right">
+    <div class="post-meta">
+      <h2 class="post-title">
+        <a href="/news/2020/08/05/jekyll-3-9-0-released/">Jekyll 3.9.0 Released</a>
+      </h2>
+      <span class="post-date">05 Aug 2020</span>
+      <a href="https://github.com/parkr" class="post-author">
+        <img class="avatar avatar-small" alt="parkr" width="24" height="24" data-proofer-ignore="true" src="https://avatars3.githubusercontent.com/parkr?v=3&s=24" srcset="https://avatars3.githubusercontent.com/parkr?v=3&s=24 1x, https://avatars3.githubusercontent.com/parkr?v=3&s=48 2x, https://avatars3.githubusercontent.com/parkr?v=3&s=72 3x, https://avatars3.githubusercontent.com/parkr?v=3&s=96 4x" /><span class="author-name">parkr</span>
+      </a>
+    </div>
+  </div>
 </article>
 <article>
   <div class="cell-left">
@@ -1538,6 +1572,12 @@ will show a helpful message when a dependency is missing.</p>
     <h4>Recent Releases</h4>
     <ul>
       <li >
+        <a href="/news/2021/04/08/jekyll-3-9-1-released/">Version 3.9.1</a>
+      </li>
+      <li >
+        <a href="/news/2020/12/14/jekyll-4-2-0-released/">Version 4.2.0</a>
+      </li>
+      <li >
         <a href="/news/2020/08/05/jekyll-3-9-0-released/">Version 3.9.0</a>
       </li>
       <li >
@@ -1545,12 +1585,6 @@ will show a helpful message when a dependency is missing.</p>
       </li>
       <li >
         <a href="/news/2020/05/27/jekyll-4-1-0-released/">Version 4.1.0</a>
-      </li>
-      <li >
-        <a href="/news/2020/05/08/jekyll-4-0-1-released/">Version 4.0.1</a>
-      </li>
-      <li >
-        <a href="/news/2019/08/20/jekyll-4-0-0-released/">Version 4.0.0</a>
       </li>
       <li>
         <a href="/docs/history/">History »</a>
@@ -1601,7 +1635,7 @@ will show a helpful message when a dependency is missing.</p>
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
       <p>Jekyll is lovingly maintained by the <a href="/team/">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;2020 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br />&copy;&nbsp;2021 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>

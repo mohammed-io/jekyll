@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Configuration Options | Jekyll • Simple, blog-aware, static sites</title>
-<meta name="generator" content="Jekyll v4.1.1" />
+<meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Configuration Options" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The tables below list the available settings for Jekyll, and the various options (specified in the configuration file) and flags (specified on the command-line) that control them." />
@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="Jekyll • Simple, blog-aware, static sites" />
 <meta property="og:image" content="https://jekyllrb.com/img/jekyll-og.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-04T02:11:01-08:00" />
+<meta property="article:published_time" content="2021-06-04T03:56:21-07:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://jekyllrb.com/img/jekyll-og.png" />
 <meta property="twitter:title" content="Configuration Options" />
 <meta name="twitter:site" content="@jekyllrb" />
 <meta name="google-site-verification" content="onQcXpAvtHBrUI5LlroHNE_FP0b2qvFyPq7VZw36iEY" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jekyllrb.com/img/logo-2x.png"}},"description":"The tables below list the available settings for Jekyll, and the various options (specified in the configuration file) and flags (specified on the command-line) that control them.","url":"https://jekyllrb.com/docs/configuration/options/","@type":"BlogPosting","headline":"Configuration Options","dateModified":"2020-12-04T02:11:01-08:00","datePublished":"2020-12-04T02:11:01-08:00","image":"https://jekyllrb.com/img/jekyll-og.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://jekyllrb.com/docs/configuration/options/"},"@context":"https://schema.org"}</script>
+{"headline":"Configuration Options","dateModified":"2021-06-04T03:56:21-07:00","datePublished":"2021-06-04T03:56:21-07:00","description":"The tables below list the available settings for Jekyll, and the various options (specified in the configuration file) and flags (specified on the command-line) that control them.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jekyllrb.com/img/logo-2x.png"}},"url":"https://jekyllrb.com/docs/configuration/options/","mainEntityOfPage":{"@type":"WebPage","@id":"https://jekyllrb.com/docs/configuration/options/"},"@type":"BlogPosting","image":"https://jekyllrb.com/img/jekyll-og.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <!--[if lt IE 9]>
@@ -62,7 +62,7 @@
 </div>
     <div class="meta hide-on-mobiles">
       <ul>
-        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.1.1">v4.1.1</a></li>
+        <li><a href="https://github.com/jekyll/jekyll/releases/tag/v4.2.0">v4.2.0</a></li>
         <li><a href="https://github.com/jekyll/jekyll">GitHub</a></li>
       </ul>
     </div>
@@ -389,7 +389,7 @@
           <p class="description">Specify layout directory instead of using <code>_layouts/</code> automatically.</p>
         </td> 
         <td class="align-center">
-          <p><code class="option">layout_dir: DIR</code></p>
+          <p><code class="option">layouts_dir: DIR</code></p>
           <p><code class="flag">--layouts DIR</code></p>
         </td>
       </tr>
@@ -523,14 +523,42 @@
       <tr class="setting">
         <td>
           <p class="name">
+            <strong>Log Level</strong>
+            
+          </p> 
+          <p class="description">Specify a log level among debug, info, warn, or error.</p>
+        </td> 
+        <td class="align-center">
+          
+          <p><code class="flag">JEKYLL_LOG_LEVEL=info</code></p>
+        </td>
+      </tr>
+    
+      <tr class="setting">
+        <td>
+          <p class="name">
             <strong>Incremental build</strong>
             
           </p> 
-          <p class="description">Enable the experimental incremental build feature. Incremental build only re-builds posts and pages that have changed, resulting in significant performance improvements for large sites, but may also break site generation in certain cases.</p>
+          <p class="description">Enable the experimental <a href="/docs/configuration/incremental-regeneration/">incremental build</a> feature. Incremental build only re-builds posts and pages that have changed, resulting in significant performance improvements for large sites, but may also break site generation in certain cases.</p>
         </td> 
         <td class="align-center">
           <p><code class="option">incremental: BOOL</code></p>
           <p><code class="flag">-I, --incremental</code></p>
+        </td>
+      </tr>
+    
+      <tr class="setting">
+        <td>
+          <p class="name">
+            <strong>Disable Bundle Require</strong>
+            
+          </p> 
+          <p class="description">Disables the need to require gems in `:jekyll_plugins` Gemfile</p>
+        </td> 
+        <td class="align-center">
+          
+          <p><code class="flag">JEKYLL_NO_BUNDLER_REQUIRE=true</code></p>
         </td>
       </tr>
     
@@ -616,7 +644,7 @@ before your site is served.</p>
             <strong>Local Server Port</strong>
             
           </p> 
-          <p class="description">Listen on the given port.</p>
+          <p class="description">Listen on the given port. The default is `4000`.</p>
         </td> 
         <td class="align-center">
           
@@ -634,7 +662,7 @@ before your site is served.</p>
             <strong>Local Server Hostname</strong>
             
           </p> 
-          <p class="description">Listen at the given hostname.</p>
+          <p class="description">Listen at the given hostname. The default is `localhost`.</p>
         </td> 
         <td class="align-center">
           
@@ -899,7 +927,7 @@ before your site is served.</p>
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
       <p>Jekyll is lovingly maintained by the <a href="/team/">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;2020 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br />&copy;&nbsp;2021 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>
